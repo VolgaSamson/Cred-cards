@@ -1,0 +1,95 @@
+
+
+.navbarwrapper {
+    display: flex;
+    position: absolute;
+    top: 0px;
+    padding: 70px 130px;
+    -webkit-box-align: center;
+    align-items: center;
+    background-color: transparent;
+    z-index: 11;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    width: 100%;
+    transition: top 0.5s ease 0s;
+  }
+  
+  .navbarlogo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar-logo svg {
+    width: 92px;
+    height: 44px;
+  }
+  
+  .navtogglecontainer {
+    display: flex;
+    margin-left: auto;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+}
+  
+  
+  .navtoggle {
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+    border-image: initial;
+    border-top: none;
+    border-bottom: none;
+    width: 80px;
+    height: 80px;
+    padding: 10px;
+  }
+  .navtogglelink{
+    display: flex;
+    flex-direction: column;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    height: 22px;
+    width: 22px;
+}
+.credlogo{ display: 'flex';
+     align-items: 'center' }
+  
+  .navtoggle .bar {
+    height: 2px;
+    width: 100%;
+    opacity: 0.6;
+    transition: all 600ms ease-in-out 0s;
+  }
+  
+  .mobile-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: #444;
+    padding: 10px;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+  }
+  
+  .mobile-menu a {
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .mobile-menu a:hover {
+    color: #ccc;
+  }
+  
