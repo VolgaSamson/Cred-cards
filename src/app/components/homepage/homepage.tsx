@@ -1,3 +1,4 @@
+import CanvasComponent from "../canvascomponent/canvascomponent";
 import CreditCardManagement from "../creditcardmanagement/creditcardmanagement";
 import Footer from "../footer/footer";
 import HeroSection from "../HeroSection/HeroSection";
