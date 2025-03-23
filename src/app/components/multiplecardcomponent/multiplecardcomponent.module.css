@@ -1,0 +1,14 @@
+
+.videoContainer {
+    position: relative;
+    height: 100vh;
+  }
+  
+  .video {
+    display: block;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+    width: 100%;
+  }
+  
