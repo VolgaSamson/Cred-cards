@@ -46,128 +46,197 @@ const Footer: React.FC = () => {
           </div>
           <div className={styles.linksSection}>
         <div className={styles.linkCategory}>
-          <div className={styles.categoryTitle}>UPGRADES</div>
+          <div className={styles.categoryTitle}>
+            <div className={styles.upgrades}>
+            UPGRADES
+            </div>
           <div className={styles.links}>
+            <div>
             <a href="https://cred.club/money" target="_blank" className={styles.link}>
               CRED money
             </a>
+            </div>
+            <div>
             <a href="https://cred.club/mint" target="_blank" className={styles.link}>
               CRED mint
             </a>
+            </div>
+            <div>
             <a href="https://cred.club/garage" target="_blank" className={styles.link}>
               CRED garage
             </a>
+            </div>
+            <div>
             <a href="https://cred.club/escapes" target="_blank" className={styles.link}>
               CRED escapes
             </a>
+            </div>
           </div>
         </div>
         <div className={styles.linkCategory}>
-          <div className={styles.categoryTitle}>PAYMENTS</div>
+          <div className={styles.upgrades}>PAYMENTS
+          </div>
           <div className={styles.links}>
+            <div>
             <a href="https://cred.club/cred-pay" target="_blank" className={styles.link}>
               Scan &amp; Pay
             </a>
+            </div>
+            <div>
             <a href="https://cred.club/tap" target="_blank" className={styles.link}>
               Tap to Pay
             </a>
+            </div>
+            <div>
             <a href="https://cred.club/pay-via-upi" target="_blank" className={styles.link}>
               Pay anyone
             </a>
+            </div>
+            <div>
             <a href="https://cred.club/upi-on-credit" target="_blank" className={styles.link}>
               RuPay cards on UPI
             </a>
+            </div>
           </div>
         </div>
+        </div>
+        <div>
         <div className={styles.linkCategory}>
-          <div className={styles.categoryTitle}>COMPANY</div>
+          <div className={styles.upgrades}>COMPANY</div>
           <div className={styles.links}>
+            <div>
             <a href="https://cred.club/about" target="_blank" className={styles.link}>
               about CRED
             </a>
+            </div>
+            <div>
             <a href="https://careers.cred.club/openings" target="_blank" className={styles.link}>
               careers
             </a>
+            </div>
           </div>
         </div>
         <div className={styles.linkCategory}>
-          <div className={styles.categoryTitle}>INSIDER PERKS</div>
+          <div className={styles.upgrades}>INSIDER PERKS</div>
           <div className={styles.links}>
+            <div>
             <a href="https://cred.club/ipl" target="_blank" className={styles.link}>
               upgrade to UPI
             </a>
+            </div>
           </div>
         </div>
         <div className={styles.linkCategory}>
-          <div className={styles.categoryTitle}>DESIGN</div>
+          <div className={styles.upgrades}>DESIGN</div>
           <div className={styles.links}>
+            <div>
             <a href="https://cred.club/neopop" target="_blank" className={styles.link}>
               NeoPOP
             </a>
+            </div>
+            <div>
             <a href="https://cred.club/design" target="_blank" className={styles.link}>
               manifesto
             </a>
+            </div>
           </div>
         </div>
+        </div>
         <div className={styles.linkCategory}>
-          <div className={styles.categoryTitle}>RESOURCES</div>
+          <div>
+          <div className={styles.upgrades}>RESOURCES</div>
           <div className={styles.links}>
+            <div>
             <a href="https://cred.club/cred-pay/onboarding" target="_blank" className={styles.link}>
               partner with us
             </a>
+            </div>
+            <div>
             <a href="https://cred.club/calculators" target="_blank" className={styles.link}>
               calculators
             </a>
+            </div>
+            <div>
             <a href="https://cred.club/articles" target="_blank" className={styles.link}>
               articles
             </a>
+            </div>
+            <div>
             <a href="https://engineering.cred.club" target="_blank" className={styles.link}>
               tech blog
             </a>
+            </div>
+            <div>
             <a href="https://cred.club/check-your-credit-score/articles" target="_blank" className={styles.link}>
               credit score guide
             </a>
+            </div>
+            <div>
             <a href="https://cred.club/credit-card-bill-payment-online/articles" target="_blank" className={styles.link}>
               credit card payment guide
             </a>
+            </div>
+            <div>
             <a href="https://cred.club/customer-care" target="_blank" className={styles.link}>
               customer care
             </a>
+            </div>
+            <div>
+<a href="https://zfrmz.in/10ASsFdqjAnCiBMpakMX" target="_blank" className={styles.link}>
+Dreampurse (HipBar) wallet refund form
+</a>
+</div>
           </div>
         </div>
         <div className={styles.linkCategory}>
-          <div className={styles.categoryTitle}>POLICY</div>
+          <div className={styles.upgrades}>POLICY</div>
           <div className={styles.links}>
+            <div>
             <a href="https://cred.club/transaction-and-user-verification-policy" target="_blank" className={styles.link}>
               transaction &amp; user verification
             </a>
+            </div>
+            <div>
             <a href="https://cred.club/privacy#compliance-with-google-oauth-api-scopes" target="_blank" className={styles.link}>
               Google API disclosure
             </a>
+            </div>
+            <div>
             <a href="https://cred.club/upi-faqs" target="_blank" className={styles.link}>
               UPI FAQ &amp; grievances
             </a>
+            </div>
+            <div>
             <a href="https://cred.club/return-policy" target="_blank" className={styles.link}>
               returns and refunds
             </a>
+            </div>
+            <div>
             <a href="https://cred.club/security" target="_blank" className={styles.link}>
               security
             </a>
+            </div>
+            <div>
             <a href="https://web-assets.cred.club/assets/docs/eop.pdf" target="_blank" className={styles.link}>
               equal opportunity policy
             </a>
+            </div>
+            <div>
             <a href="https://cred.club/investor-relations" target="_blank" className={styles.link}>
               investor relations
             </a>
+            </div>
+            <div>
             <a href="https://cred.club/legal/other-disclosures" target="_blank" className={styles.link}>
               other disclosures
             </a>
+            </div>
           </div>
         </div>
       </div>
         </div>
       </div>
-      
+      </div>
       
       <div className={styles.copyright_main_container}>
         <div className={styles.copyright_line}>
