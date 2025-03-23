@@ -1,0 +1,242 @@
+.footer{
+    width: 100vw;
+    position: relative;
+    margin-top: 100px;
+    background: radial-gradient(63.85% 195.77% at 50.93% 100%, rgb(17, 17, 17) 0%, rgb(0, 0, 0) 100%);
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    border-image: initial;
+    border-left: none;
+    border-right: none;
+}
+
+.faq{
+    font-family: gilroy;
+    cursor: pointer;
+    height: 20vh;
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 39.33px;
+    letter-spacing: 8.4px;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.faqicon{
+    border: none;
+    background: transparent;
+    color: transparent;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+}
+.faqiconimg{
+    width: 22px;
+    margin: 5px;
+    transition: transform 0.8s ease 0s;
+    transform: rotate(0deg);
+}
+
+/* styles/Footer.module.css */
+.footerContainer {
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    width: 100vw;
+    min-height: 100vh;
+    padding: 180px 100px;
+    position: relative;
+    z-index: 3;
+  }
+  
+  .logoSection {
+    display: flex;
+    column-gap: 40px;
+  }
+  
+  .logoWrapper {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+  }
+  
+  .footerLogo {
+    width: 100px;
+  }
+  
+  .securityLogo {
+    margin-top: auto;
+    margin-bottom: 20px;
+    width: 310px;
+  }
+  
+  .securityText {
+    color: rgb(255, 255, 255);
+    opacity: 0.8;
+    font-size: 20px;
+    font-style: normal;
+    font-family: gilroy;
+    font-weight: 600;
+    line-height: 31.5px;
+    letter-spacing: 0.8px;
+  }
+  
+  .securityDescription {
+    padding-top: 50px;
+    max-width: 500px;
+    font-family: gilroy;
+    color: rgb(255, 255, 255);
+    opacity: 0.3;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 32px;
+    letter-spacing: 0.2px
+  }
+  
+  .bannerSection {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 100px;
+  }
+  
+  .nowLive {
+    position: relative;
+    width: 100%;
+  }
+  
+  .liveText {
+    position: absolute;
+    top: -18px;
+    left: 30px;
+    padding: 5px 15px;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgb(0, 0, 0);
+    font-family: gilroy;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    text-align: center;
+    color: rgb(255, 255, 255);
+  }
+  
+  .bannerImage {
+    width: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+  }
+  
+  .linksSection {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 45px;
+  }
+  
+  .linkCategory {
+    overflow-wrap: break-word;
+  }
+  
+  .categoryTitle {
+    font-family: gilroy-bold;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 32px;
+    letter-spacing: 6px;
+    text-align: left;
+    color: rgba(255, 255, 255, 0.8);
+  }
+  
+  .links {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .link {
+    font-family: gilroy-regular;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 44px;
+    letter-spacing: 0.3px;
+    text-align: left;
+    color: rgba(255, 255, 255, 0.3);
+  }
+  
+  .link:hover {
+    text-decoration: underline;
+  }
+  .copyright_main_container{
+    display: flex;
+    flex-direction: column;
+    row-gap: 50px;
+    width: 100%;
+    padding-top: 50px;
+  }
+  .copyright_line{
+    border-top: 1px solid rgb(255, 255, 255);
+    opacity: 0.2;
+    width: 100%;
+    margin: auto;
+  }
+  .copyright_text_main{
+    display: flex;
+    width: 100%;
+  }
+  .copyright_text{
+    width: 100%;
+    font-family: gilroy-regular;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 30px;
+    letter-spacing: 0.1px;
+    text-align: start;
+    color: rgb(255, 255, 255);
+    opacity: 0.25;
+  }
+  .privacy_container{
+    width: 100%;
+    text-align: end;
+  }
+  .privacy_policy{
+    font-family: gilroy-regular;
+    font-size: 20px;
+    width: 100%;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 0.1px;
+    text-align: end;
+    color: rgb(255, 255, 255);
+    margin-bottom: 20px;
+    opacity: 0.3;
+    padding: 0px 15px;
+    border-right: 1px solid rgb(246, 246, 246);
+  }
+  .terms_conditions{
+    font-family: gilroy-regular;
+    font-size: 20px;
+    width: 100%;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 0.1px;
+    text-align: end;
+    color: rgb(255, 255, 255);
+    margin-bottom: 20px;
+    opacity: 0.3;
+    padding: 0px 15px;
+    border-right: 1px solid rgb(246, 246, 246);
+  }
+  
