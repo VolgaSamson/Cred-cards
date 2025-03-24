@@ -1,5 +1,6 @@
 
 import CardCarousel from "../CardCarousel/cardcarousel";
+import CardStatement from "../cardstatements/cardstatements";
 import CreditCardManagement from "../creditcardmanagement/creditcardmanagement";
 import DataProtection from "../dataprotection/dataprotection";
 import DownloadCred from "../DownloadCred/downloadcred";
@@ -17,6 +18,7 @@ const HomePage: React.FC = () => {
       <CreditCardManagement/>
       <MultipleCardComponent/>
       <CardCarousel/>
+      <CardStatement/>
       <DataProtection/>
       <DownloadCred/>
       <Footer/>
