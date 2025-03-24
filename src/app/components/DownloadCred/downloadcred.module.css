@@ -1,0 +1,107 @@
+
+.credvideoSectionWrapper {
+    position: relative;
+    height: 100vh;
+  }
+  
+  .credvideoPlayer {
+    display: block;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+    width: 100%;
+  }
+  
+  .overlayContainer {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    opacity: 0; 
+    transition: opacity 0.3s ease-out 0s;
+    pointer-events: none; 
+  }
+  
+  .overlayContainer.showOverlay {
+    opacity: 1; 
+    pointer-events: auto; 
+  }
+  
+  
+  .qrBoxContainer {
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    position: relative;
+    top: -78%;
+  }
+  
+  .qrBox {
+    max-width: fit-content;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(6.96986px);
+    padding: 20px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .qrImage {
+    width: 80px;
+  }
+  
+  .downloadText {
+    width: 100%;
+    font-family: gilroy;
+    font-size: 23px;
+    font-weight: 500;
+    line-height: 28px;
+    letter-spacing: -0.382px;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    opacity: 0.9;
+    margin-left: 20px;
+  }
+  
+  .buttonWrapper {
+    pointer-events: auto;
+  }
+  
+  .downloadButton {
+    text-decoration: none;
+    outline: 0px;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  .maincontainerbuttonText {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    text-align: center;
+    color: rgb(13, 13, 13);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(0, 0, 0, 0.3);
+    padding: 26px 32px;
+    width: fit-content;
+    text-decoration: none;
+    outline: none;
+    cursor: pointer;
+  }
+  
+  .buttonText {
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-family: gilroy-medium;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+  
+  .arrowIcon {
+    margin-left: 14px;
+  }
+  
