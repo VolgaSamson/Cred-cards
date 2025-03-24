@@ -1,6 +1,6 @@
 "use client";
-import { useEffect, useRef, useState } from 'react';
-import styles from './multiplecardcomponent.module.css';
+import { useEffect, useRef, useState } from "react";
+import styles from "./multiplecardcomponent.module.css";
 
 const MultipleCardComponent = () => {
   const imageUrls = [
@@ -11,62 +11,105 @@ const MultipleCardComponent = () => {
     'https://web-images.credcdn.in/v2/_next/assets/images/cards/desktop/fallbackImages/interactions/long-press-fallback.jpg?tr=orig',
     'https://web-images.credcdn.in/v2/_next/assets/images/cards/desktop/fallbackImages/interactions/smart-nav-fallback.jpg?tr=orig',
     'https://web-images.credcdn.in/v2/_next/assets/images/cards/mobile/unbilled/fallback/unbilled-fold-fallback.jpg?tr=orig',
-    'https://web-images.credcdn.in/v2/_next/assets/images/cards/desktop/unbilled/fallback/unbilled-fold-fallback.jpg?tr=orig'
+    'https://web-images.credcdn.in/v2/_next/assets/images/cards/desktop/unbilled/fallback/unbilled-fold-fallback.jpg?tr=orig',
   ];
 
-  const canvasRef = useRef<HTMLCanvasElement | null>(null);  
-  const [images, setImages] = useState<HTMLImageElement[]>([]); 
-  const [loadedImagesCount, setLoadedImagesCount] = useState(0); 
-  const [currentFrame, setCurrentFrame] = useState(0); 
+  const [images, setImages] = useState<HTMLImageElement[]>([]);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [currentFrame, setCurrentFrame] = useState(0); // Track the current image index
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   // Function to load all images
   useEffect(() => {
     const loadImages = () => {
-      const loadedImages: HTMLImageElement[] = imageUrls.map((url) => {
+      const loadedImages: HTMLImageElement[] = [];
+      let loadedCount = 0;  // To track how many images have loaded
+
+      imageUrls.forEach((url, index) => {
         const img = new Image();
         img.src = url;
         img.onload = () => {
-          // Increment loaded images count when the image is loaded
-          setLoadedImagesCount((prevCount) => prevCount + 1);
+          loadedImages[index] = img;  // Store the image at the correct index
+          loadedCount++;
+
+          // If all images are loaded, set them to state
+          if (loadedCount === imageUrls.length) {
+            setImages(loadedImages);
+            setIsLoaded(true);
+          }
         };
-        return img;
+        img.onerror = () => {
+          console.error(`Failed to load image: ${url}`);
+        };
       });
-      setImages(loadedImages);
     };
 
     loadImages();
-  }, []);
+  }, []); // This effect runs once when the component mounts
 
-  // Function to draw the images onto the canvas in sequence
+  // Handle the scroll event to change the current frame based on the scroll position
   useEffect(() => {
-    if (!canvasRef.current || loadedImagesCount !== imageUrls.length) return; // Check if images are fully loaded
+    const handleScroll = () => {
+      if (!isLoaded || !canvasRef.current) return;
 
-    const canvas = canvasRef.current;
-    const context = canvas.getContext('2d');
-    if (!context) return; // Check if context is null
+      // Calculate scroll percentage
+      const scrollY = window.scrollY;
+      const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercentage = scrollY / scrollHeight;
 
-    let animationFrameId: number;
+      // Calculate the current frame based on the scroll percentage
+      const frameIndex = Math.floor(scrollPercentage * images.length);
 
-    const drawFrame = () => {
-      if (images.length > 0) {
-        context.clearRect(0, 0, canvas.width, canvas.height); // Clear the canvas
-        context.drawImage(images[currentFrame], 0, 0, canvas.width, canvas.height); // Draw the current image
-
-        // Move to the next frame
-        setCurrentFrame((prevFrame) => (prevFrame + 1) % images.length); // Loop the frames
+      // Update the current frame if it has changed
+      if (frameIndex !== currentFrame) {
+        setCurrentFrame(frameIndex);
       }
-      
-      animationFrameId = requestAnimationFrame(drawFrame); // Request the next animation frame
     };
 
-    // Start the drawing loop once images are loaded
-    if (images.length > 0 && loadedImagesCount === imageUrls.length) {
-      drawFrame();
-    }
+    // Add the scroll event listener
+    window.addEventListener("scroll", handleScroll);
 
-    // Cleanup the animation frame when the component unmounts or stops rendering
-    return () => cancelAnimationFrame(animationFrameId);
-  }, [images,  loadedImagesCount]); // Dependencies are images, currentFrame, and loadedImagesCount
+    // Clean up the event listener on unmount
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [isLoaded, currentFrame, images.length]);
+
+  // Draw the current frame on the canvas
+  useEffect(() => {
+    if (!canvasRef.current || !isLoaded) return;
+
+    const canvas = canvasRef.current;
+    const context = canvas.getContext("2d");
+    if (!context) return;
+
+    const img = images[currentFrame];
+
+    if (img) {
+      // Set the canvas size to match the image size
+      const canvasContainer = canvas.parentElement;
+      if (canvasContainer) {
+        const containerWidth = canvasContainer.clientWidth;
+        const containerHeight = canvasContainer.clientHeight;
+
+        const aspectRatio = img.width / img.height;
+        let canvasWidth = containerWidth;
+        let canvasHeight = containerWidth / aspectRatio;
+
+        if (canvasHeight > containerHeight) {
+          canvasHeight = containerHeight;
+          canvasWidth = containerHeight * aspectRatio;
+        }
+
+        canvas.width = canvasWidth;
+        canvas.height = canvasHeight;
+      }
+
+      // Clear the canvas and draw the current image
+      context.clearRect(0, 0, canvas.width, canvas.height);
+      context.drawImage(img, 0, 0, canvas.width, canvas.height);
+    }
+  }, [currentFrame, isLoaded, images]);
 
   return (
     <>

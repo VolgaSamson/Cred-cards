@@ -3,8 +3,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import styles from './cardstatements.module.css';
 
 const CardStatement: React.FC = () => {
-  
-  const imageUrls1 = [
+  const imageUrls = [
     'https://web-images.credcdn.in/v2/_next/assets/images/cards/desktop/smart-statements/fallback/fallback-1.jpg?tr=orig',
     'https://web-images.credcdn.in/v2/_next/assets/images/cards/desktop/smart-statements/fallback/fallback-2.jpg?tr=orig',
     'https://web-images.credcdn.in/v2/_next/assets/images/cards/mobile/smart-statements/fallback/fallback-2.jpg?tr=orig',
@@ -17,79 +16,83 @@ const CardStatement: React.FC = () => {
     'https://web-images.credcdn.in/v2/_next/assets/images/cards/desktop/smart-statements/fallback/fallback-4.jpg?tr=orig',
     'https://web-images.credcdn.in/v2/_next/assets/images/cards/desktop/smart-statements/fallback/fallback-5.jpg?tr=orig'
   ];
+  const imageUrls1 = [
+    'https://web-images.credcdn.in/v2/_next/assets/images/cards/mobile/perks/fallback/card-perks-fallback.jpg?tr=orig',
+    'https://web-images.credcdn.in/v2/_next/assets/images/cards/desktop/perks/fallback/card-perks-fallback.jpg?tr=orig'
+  ];
+
+  const [images, setImages] = useState<HTMLImageElement[]>([]);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [currentFrame, setCurrentFrame] = useState(0); // Track the current image index
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
   
-  const imageUrls2 = 
-    "https://web-images.credcdn.in/v2/_next/assets/images/cards/mobile/perks/fallback/card-perks-fallback.jpg?tr=orig"
-  ;
-
-  const canvasRef1 = useRef<HTMLCanvasElement | null>(null);
-  const canvasRef2 = useRef<HTMLCanvasElement | null>(null);
-
-  const [images1, setImages1] = useState<HTMLImageElement[]>([]);
-  const [images2, setImages2] = useState<HTMLImageElement[]>([]);
-  const [isLoaded, setIsLoaded] = useState(false); // Track if images are loaded
-
-  // Refs to track current frame, this won't trigger re-renders
-  const currentFrame1Ref = useRef(0);
-  const currentFrame2Ref = useRef(0);
-
-  // Load images on component mount
+  // Function to load all images
   useEffect(() => {
-    const loadImages = (urls: string[]) => {
-      return urls.map((url) => {
+    const loadImages = () => {
+      const loadedImages: HTMLImageElement[] = imageUrls.map((url) => {
         const img = new Image();
         img.src = url;
+        img.onload = () => {
+          // Check if all images are loaded
+          if (loadedImages.every((img) => img.complete)) {
+            setIsLoaded(true);
+          }
+        };
         return img;
       });
+      setImages(loadedImages);
     };
 
-    const loadedImages1 = loadImages(imageUrls1);
-    
-    // Set the images in the state and mark as loaded
-    setImages1(loadedImages1);
-    
-    // Set a flag to indicate that the images are loaded
-    setIsLoaded(true);
-  }, []); // Empty array ensures this runs only once
+    loadImages();
+  }, []);
 
-  // Animation effect with delay
+  // Handle the scroll event to change the current frame based on the scroll position
   useEffect(() => {
-    if (!isLoaded || !canvasRef1.current || !canvasRef2.current) return;
+    const handleScroll = () => {
+      if (!isLoaded || !canvasRef.current) return;
 
-    // Delay the start of the animation by 3 seconds
-    const delayAnimation = setTimeout(() => {
-      const canvas1 = canvasRef1.current!;
-      const canvas2 = canvasRef2.current!;
-      const context1 = canvas1.getContext('2d');
-      const context2 = canvas2.getContext('2d');
+      // Calculate scroll percentage
+      const scrollY = window.scrollY;
+      const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercentage = scrollY / scrollHeight;
 
-      if (!context1 || !context2) return;
+      // Calculate the current frame based on the scroll percentage
+      const frameIndex = Math.floor(scrollPercentage * images.length);
 
-      const drawFrame = () => {
-        // Clear canvas before drawing the next frame
-        context1.clearRect(0, 0, canvas1.width, canvas1.height);
-        context2.clearRect(0, 0, canvas2.width, canvas2.height);
+      // Update the current frame if it has changed
+      if (frameIndex !== currentFrame) {
+        setCurrentFrame(frameIndex);
+      }
+    };
 
-        // Draw current images on respective canvases
-        context1.drawImage(images1[currentFrame1Ref.current], 0, 0, canvas1.width, canvas1.height);
-        context2.drawImage(images2[currentFrame2Ref.current], 0, 0, canvas2.width, canvas2.height);
+    // Add the scroll event listener
+    window.addEventListener("scroll", handleScroll);
 
-        // Increment frames (using refs to avoid re-renders)
-        currentFrame1Ref.current = (currentFrame1Ref.current + 1) % images1.length;
-        currentFrame2Ref.current = (currentFrame2Ref.current + 1) % images2.length;
+    // Clean up the event listener on unmount
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [isLoaded, currentFrame, images.length]);
 
-        // Request the next frame
-        requestAnimationFrame(drawFrame);
-      };
-
-      // Start the drawing loop
-      drawFrame();
-    }, 3000); // Delay animation by 3 seconds
-
-    // Cleanup function to clear the timeout when the component unmounts
-    return () => clearTimeout(delayAnimation);
-
-  }, [isLoaded, images1, images2]); // Only trigger when images are loaded
+  // Draw the current frame on the canvas
+  useEffect(() => {
+    if (!canvasRef.current || !isLoaded) return;
+  
+    const canvas = canvasRef.current;
+    const context = canvas.getContext("2d");
+    if (!context) return;
+  
+    const img = images[currentFrame];
+    
+    // Adjust canvas size to image size
+    canvas.width = img.width;
+    canvas.height = img.height;
+  
+    // Clear the canvas and draw the current image
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    context.drawImage(img, 0, 0, canvas.width, canvas.height);
+  }, [currentFrame, isLoaded, images]);
+  
 
   return (
     <>
@@ -100,7 +103,7 @@ const CardStatement: React.FC = () => {
             <div className={styles.sub_card_statement_slide2}></div>
             <div className={styles.card_statement_canvas_container}>
               {/* First Canvas */}
-              <canvas ref={canvasRef1} className={styles.card_statement_canvas}></canvas>
+              <canvas ref={canvasRef} className={styles.card_statement_canvas}></canvas>
             </div>
           </div>
         </div>
@@ -113,7 +116,8 @@ const CardStatement: React.FC = () => {
             <div className={styles.sub_card_statement_slide4}></div>
             <div className={styles.card_statement_canvas_subcontainer}>
               {/* Second Canvas */}
-              <img src={imageUrls2} className={styles.card_statement_canvas2} alt="Canvas Image 2" />
+
+              <img src="https://web-images.credcdn.in/v2/_next/assets/images/cards/desktop/perks/fallback/card-perks-fallback.jpg?tr=orig" className={styles.card_statement_canvas2} alt="Canvas Image 2" />
             </div>
           </div>
         </div>
