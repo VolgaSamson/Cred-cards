@@ -3,15 +3,9 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Head from "next/head"; // Import Head from next/head
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+
+
 
 export const metadata: Metadata = {
   title: "CRED - Cards",
@@ -78,7 +72,7 @@ export default function RootLayout({
 <link rel="stylesheet" href="https://web-assets.cred.club/v2/_next/static/css/eacb8193bb5962f6.css" data-n-g="" />
 <noscript data-n-css=""></noscript>  
       </Head>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body>
         {children}
       </body>
     </html>

@@ -11,7 +11,7 @@
 }
 
 .faq{
-    font-family: gilroy;
+    font-family: gilroy !important;
     cursor: pointer;
     height: 20vh;
     font-size: 30px;

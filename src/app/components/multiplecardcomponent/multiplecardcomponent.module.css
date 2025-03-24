@@ -72,4 +72,9 @@
     pointer-events: none;
     width: 100%;
   }
+  .secondmultipleinnercanvas{
+    aspect-ratio: 3485 / 2029;
+    width: 30%;
+    height: auto;
+  }
   
