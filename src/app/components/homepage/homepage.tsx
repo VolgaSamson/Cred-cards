@@ -1,4 +1,5 @@
 import CanvasComponent from "../canvascomponent/canvascomponent";
+import CardCarousel from "../CardCarousel/cardcarousel";
 import CreditCardManagement from "../creditcardmanagement/creditcardmanagement";
 import Footer from "../footer/footer";
 import HeroSection from "../HeroSection/HeroSection";
@@ -13,6 +14,7 @@ const HomePage: React.FC = () => {
       <HeroSection/>
       <CreditCardManagement/>
       <MultipleCardComponent/>
+      <CardCarousel/>
       <Footer/>
     </div>
   );

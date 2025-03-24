@@ -1,0 +1,100 @@
+.interactionCard {
+    position: relative;
+    width: 100vw;
+    min-height: 100vh;
+    background-color: rgb(255, 255, 255);
+    padding: 125px;
+    -webkit-box-align: baseline;
+    align-items: baseline;
+    -webkit-box-pack: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .interactionCard__header {
+    background-color: red;
+    z-index: 2;
+    position: absolute;
+    top: -70vh;
+    height: 3px;
+    text-align: center;
+}
+  
+  
+  .interactionCard__title {
+    background: linear-gradient(170deg, rgb(0, 0, 0), rgb(85, 85, 85)) text;
+    -webkit-text-fill-color: transparent;
+    font-family: denton;
+    font-size: 167px;
+    font-weight: 800;
+    letter-spacing: -0.3px;
+    line-height: 65px;
+    text-align: left;
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+  }
+  
+  .interactionCard__interactions {
+    display: flex;
+    width: 100%;
+  }
+  
+  
+  .interactionCard__video {
+    width: 100%;
+  height: auto;
+  max-width: 100%;
+}
+  
+  
+  .interactionCard__textWrapper {
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  .interactionCard__icon {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .interactionCard__text {
+    margin-left: 10px;
+    text-align: left;
+  }
+  
+  .interactionCard__description {
+    font-family: gilroy-bold;
+    font-size: 15px;
+    font-weight: initial;
+    letter-spacing: 2.15px;
+    line-height: 28px;
+  }
+  
+  .interactionCard__subDescription {
+    font-family: gilroy;
+    font-size: 15px;
+    font-weight: initial;
+    letter-spacing: 0.5px;
+    line-height: 28px;
+    opacity: 0.6;
+    color: rgb(0, 0, 0);
+  }
+  .interactionCard__header2{
+    margin-bottom: calc(40px);
+  }
+  .interactionCard__header3{
+    margin-bottom: calc(15px);
+  }
+  .interactionCard__header4{
+    margin-bottom: calc(15px);
+  }
+  .interactionCard__header5{
+    margin-bottom: calc(15px);
+  }
