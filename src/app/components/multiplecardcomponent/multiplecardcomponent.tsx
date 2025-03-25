@@ -16,23 +16,23 @@ const MultipleCardComponent = () => {
 
   const [images, setImages] = useState<HTMLImageElement[]>([]);
   const [isLoaded, setIsLoaded] = useState(false);
-  const [currentFrame, setCurrentFrame] = useState(0); // Track the current image index
+  const [currentFrame, setCurrentFrame] = useState(0);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
-  // Function to load all images
+  
   useEffect(() => {
     const loadImages = () => {
       const loadedImages: HTMLImageElement[] = [];
-      let loadedCount = 0;  // To track how many images have loaded
+      let loadedCount = 0; 
 
       imageUrls.forEach((url, index) => {
         const img = new Image();
         img.src = url;
         img.onload = () => {
-          loadedImages[index] = img;  // Store the image at the correct index
+          loadedImages[index] = img;  
           loadedCount++;
 
-          // If all images are loaded, set them to state
+         
           if (loadedCount === imageUrls.length) {
             setImages(loadedImages);
             setIsLoaded(true);
@@ -45,7 +45,7 @@ const MultipleCardComponent = () => {
     };
 
     loadImages();
-  }, []); // This effect runs once when the component mounts
+  }, []); 
 
   // Handle the scroll event to change the current frame based on the scroll position
   useEffect(() => {

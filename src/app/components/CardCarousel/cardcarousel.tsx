@@ -23,8 +23,9 @@ const CardCarousel = () => {
               src="https://web-images.credcdn.in/v2/_next/assets/videos/cards/desktop/interactions/swipe.mp4?tr=q-95"
               type="video/mp4"
             />
-            <div className={styles.interactionCard__header3}></div>
+            
           </video>
+          <div className={styles.interactionCard__header3}></div>
           <div className={styles.interactionCard__textWrapper}>
             <img
               src="https://web-images.credcdn.in/v2/_next/assets/images/cards/swipe-left.png?tr=orig"
@@ -73,7 +74,7 @@ const CardCarousel = () => {
             </div>
           </div>
         </div>
-        <div className={styles.interactionCard__interaction}>
+        <div>
           <video
             playsInline
             muted

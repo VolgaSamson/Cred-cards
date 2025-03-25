@@ -1,5 +1,7 @@
 .main_card_statement_component {
   position: relative;
+  height:auto;
+  width: 88%;
 }
 
 .sub_card_statement_slide {
@@ -41,8 +43,9 @@
 
 .card_statement_canvas {
   width: 100%;
-  height: auto; /* Avoid forcing height */
-  object-fit: cover; /* Makes sure the image is properly scaled */
+  height: auto;
+  object-fit: contain;
+  aspect-ratio: 3485 / 2029; 
 }
 
 .card_statement_imageloader_container {
@@ -88,6 +91,7 @@
 }
 
 .card_statement_canvas2 {
-  width: 100%;  /* Ensure it scales based on container */
-  height: auto; /* Maintain aspect ratio */
+  width: 100%; 
+  height: auto; 
+  aspect-ratio: 3485 / 2029;
 }

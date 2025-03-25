@@ -44,6 +44,7 @@
   .interactionCard__interactions {
     display: flex;
     width: 100%;
+    gap:15px;
   }
   
   
