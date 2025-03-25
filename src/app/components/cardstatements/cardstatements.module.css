@@ -1,6 +1,6 @@
 .main_card_statement_component {
   position: relative;
-  height:auto;
+  height: auto;
   width: 88%;
 }
 
@@ -45,7 +45,7 @@
   width: 100%;
   height: auto;
   object-fit: contain;
-  aspect-ratio: 3485 / 2029; 
+  aspect-ratio: 3485 / 2029;
 }
 
 .card_statement_imageloader_container {
@@ -91,7 +91,55 @@
 }
 
 .card_statement_canvas2 {
-  width: 100%; 
-  height: auto; 
+  width: 100%;
+  height: auto;
   aspect-ratio: 3485 / 2029;
+}
+
+@media (max-width: 768px) {
+  .main_card_statement_component {
+    width: 100%;
+  }
+
+  .sub_card_statement_slide2 {
+    height: 300vh;
+  }
+
+  .card_statement_canvas {
+    aspect-ratio: 16 / 9;
+  }
+
+  .card_statement_canvas2 {
+    aspect-ratio: 16 / 9;
+  }
+
+  .card_statement_imageloader_subcontainer {
+    height: 400vh;
+  }
+
+  .sub_card_statement_slide4 {
+    height: 400vh;
+  }
+}
+
+@media (max-width: 480px) {
+  .sub_card_statement_slide2 {
+    height: 200vh;
+  }
+
+  .card_statement_canvas {
+    aspect-ratio: 16 / 9;
+  }
+
+  .card_statement_canvas2 {
+    aspect-ratio: 16 / 9;
+  }
+
+  .card_statement_imageloader_subcontainer {
+    height: 300vh;
+  }
+
+  .sub_card_statement_slide4 {
+    height: 350vh;
+  }
 }
