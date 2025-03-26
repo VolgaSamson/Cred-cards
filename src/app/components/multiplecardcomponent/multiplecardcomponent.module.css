@@ -79,5 +79,91 @@
     pointer-events: none;
     width: 100%;
   }
+  @media (max-width: 1024px) {
+    .secondmultiplewrapper {
+      height: 400vh;
+    }
+  
+    .secondmultipleinnercanvas {
+      width: 80%;
+    }
+  
+    .innercanvas {
+      width: 80%;
+    }
+  
+    .secondmultiplespacer {
+      height: 400vh;
+    }
+  
+    .multiplevideoContainer {
+      height: auto;
+    }
+  
+    .thirdmultiplevideoContainer {
+      height: auto;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .secondmultiplewrapper {
+      height: 200vh;
+    }
+  
+    .secondmultipleinnercanvas {
+      width: 90%;
+    }
+  
+    .innercanvas {
+      width: 90%;
+    }
+  
+    .secondmultiplespacer {
+      height: 250vh;
+    }
+  
+    .multiplevideoContainer {
+      height: 80vh;
+    }
+  
+    .thirdmultiplevideoContainer {
+      height: 80vh;
+    }
+  
+    .multiplevideo {
+      object-fit: cover;
+      height: 100%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .secondmultiplewrapper {
+      height: 150vh;
+    }
+  
+    .secondmultipleinnercanvas {
+      width: 100%;
+    }
+  
+    .innercanvas {
+      width: 100%;
+    }
+  
+    .secondmultiplespacer {
+      height: 200vh;
+    }
+  
+    .multiplevideoContainer {
+      height: 60vh;
+    }
+  
+    .thirdmultiplevideoContainer {
+      height: 60vh;
+    }
+  
+    .multiplevideo {
+      height: 100%;
+    }
+  }
   
   

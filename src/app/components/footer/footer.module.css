@@ -245,4 +245,88 @@
     opacity: 0.3;
     padding: 0px 15px;
   }
+  @media (max-width: 1024px) {
+    .footerContainer {
+      padding: 80px 40px; 
+    }
+  
+    .linksSection {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 30px;
+    }
+  
+    .logoSection {
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .footerContainer {
+      padding: 60px 20px; 
+    }
+  
+    .footerLogo {
+      width: 80px; 
+    }
+  
+    .securityLogo {
+      width: 250px; 
+    }
+  
+    .bannerImage {
+      width: 100%; 
+    }
+  
+    .categoryTitle {
+      font-size: 18px; 
+    }
+  
+    .linksSection {
+      gap: 20px; 
+    }
+  
+    .link {
+      font-size: 18px; 
+    }
+  
+    .copyright_text {
+      font-size: 16px; 
+    }
+  
+    .privacy_policy, .terms_conditions {
+      font-size: 16px; 
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .footerContainer {
+      padding: 40px 10px; 
+    }
+  
+    .faq {
+      font-size: 24px; 
+    }
+  
+    .securityDescription {
+      max-width: 100%; 
+      font-size: 16px; 
+    }
+  
+    .copyright_line {
+      margin-top: 20px; 
+    }
+  
+    .copyright_text {
+      font-size: 14px; 
+    }
+  
+    .privacy_policy, .terms_conditions {
+      font-size: 14px; 
+      margin-right: 0; 
+    }
+  }
+  
   
